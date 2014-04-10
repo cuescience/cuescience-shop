@@ -1,0 +1,26 @@
+Checkout wizard:
+
+Step 1:
+	Form based on Client model:
+		- first_name.
+		- last_name.
+		//- e-mail.
+ 
+Step 2:
+	Form based on Address model:
+		Heading: Shipping Address
+		- street | number.
+		- postcode | city.
+		- Different billing address? (different billing address) - Checkbox.
+	
+Step 3:
+	Condition: different billing address from step 2 is True
+	Form based on Address model:
+		Heading: Billing Address
+		- street | number.
+		- postcode | city.
+
+Step 4:
+	Form:
+		Heading: Payment options
+		- Please choose one (paypent options) - Choices are Prepayment PayPal.

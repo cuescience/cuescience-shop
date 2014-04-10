@@ -1,0 +1,49 @@
+Every Product has:
+	- a title.
+	The title of the product
+	- a price as decimal:
+	The price without tax. The maximum value is 9999,99
+		decimal places: 2
+		max digits: 6
+
+Configure standard admin.
+
+Every Order has:
+	- a order number.
+	- one Client.
+	The client wich has ordered.
+	- one cart.Cart.
+	The cart contains the ordered products, quantities and total price
+	- one exclusive cuescience_payment.Payment called payment.
+	
+Configure admin to:
+	- display: order number, client.
+	- show filter for: client.
+	
+Every Client has:
+	- a client number:
+		max length: 6
+	- an email.
+	- a first name.
+	- a last name.
+	- one exclusive Address called billing address.
+	- one exclusive Address called shipping address.
+
+Configure admin to:
+	- display: client number, first name, last name.
+	- show filter for: shipping address__city.
+
+Every Address (plural Addresses) has:
+	- a street.
+	- a number:
+	The street number contains the number itself as well as extra characters, e.g. 41c 
+		max length: 5
+	- a postcode:
+	The German postcode, maybe not suitable for other countries.
+		max length: 5
+	- a city.
+	
+		
+Configure standard admin.
+	
+	

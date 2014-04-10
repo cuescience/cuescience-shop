@@ -1,0 +1,11 @@
+Create product cuescience Scoreboard for 299.00
+
+Add cuescience Scoreboard to cart
+
+// Assert that we were redirected
+Assert status code: 302
+
+Assert total cart item count: 1
+Assert total cart price: 299.00
+
+Assert 1 cuescience Scoreboard in cart for 299.00

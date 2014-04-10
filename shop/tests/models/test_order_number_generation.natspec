@@ -1,0 +1,4 @@
+Create address Test 11 01069 Dresden
+Create client John Doe
+Create order
+Assert order number is 0001

@@ -1,0 +1,5 @@
+Remove product 1 from cart
+
+Assert status code: 404
+Assert total cart item count: 0
+Assert total cart price: 0

@@ -1,0 +1,22 @@
+Create address Test 11 01069 Dresden
+Create client Client One
+Create address Test 11 01069 Dresden
+Create client Client Two
+Create address Test 11 01069 Dresden
+Create client Client Three
+Create address Test 11 01069 Dresden
+Create client Client Four
+Create address Test 11 01069 Dresden
+Create client Client Five
+Create address Test 11 01069 Dresden
+Create client Client Six
+Create address Test 11 01069 Dresden
+Create client Client Seven
+Create address Test 11 01069 Dresden
+Create client Client Eight
+Create address Test 11 01069 Dresden
+Create client Client Nine
+Create address Test 11 01069 Dresden
+Create client Client Ten
+
+Assert client number is 0010

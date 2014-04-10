@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>{{ cart.summary }} ({{ cart.count }})</div>
+<ul>
+    {% for product in products %}
+        <li>{{ product }} <form action="/shop/cart/add/{{ product.id }}/?next={{ request.get_full_path }}" method="post">{% csrf_token %}<input type="submit" value="In den Warenkorb"/></form></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

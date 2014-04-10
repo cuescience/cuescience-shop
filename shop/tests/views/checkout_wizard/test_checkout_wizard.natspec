@@ -1,0 +1,47 @@
+Create product cuescience Scoreboard for 299.00
+Create product cuescience LiveCam for 150.00
+
+Add cuescience Scoreboard to cart
+// Assert that we were redirected
+Assert status code: 302
+
+
+// We need the cart later for checking the order
+Select cart
+
+Checkout cart
+
+Assert step 1 of wizard is displayed
+
+Enter data:
+    - current step: 1
+    - first name: John
+    - last name: Doe
+Submit
+    
+Assert step 2 of wizard is displayed
+
+Enter data:
+    - current step: 2
+    - street: Test Street
+    - number: 11
+    - postcode: 01069
+    - city: Dresden
+    - different billing address: False
+Submit
+    
+Assert step 4 of wizard is displayed
+
+Enter data:
+    - current step: 4
+    - paypent_options: PayPal
+Submit
+
+Assert total cart item count: 0
+
+Select client: John, Doe
+Assert client has shipping address: Test Street, 11, 01069, Dresden
+Assert client has billing address: Test Street, 11, 01069, Dresden
+
+Assert order with cart exists
+Assert order has abovementioned client

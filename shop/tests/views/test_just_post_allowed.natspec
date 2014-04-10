@@ -1,0 +1,8 @@
+Send get to /cart/add/1/
+Assert status code: 405
+
+Send get to /cart/remove/1/
+Assert status code: 405
+
+Send get to /cart/update/
+Assert status code: 405

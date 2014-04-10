@@ -1,0 +1,15 @@
+Create product cuescience Scoreboard for 299.00
+Create product cuescience LiveCam for 150.00
+
+Add cuescience Scoreboard to cart
+// Assert that we were redirected
+Assert status code: 302
+Add cuescience LiveCam to cart
+// Assert that we were redirected
+Assert status code: 302
+
+Assert total cart item count: 2
+Assert total cart price: 449.00
+
+Assert 1 cuescience Scoreboard in cart for 299.00
+Assert 1 cuescience LiveCam in cart for 150.00
