@@ -1,7 +1,7 @@
 """ GENERATED FILE. ALL CHANGES WILL BE OVERWRITTEN! """
 from django import forms
 from django.contrib.formtools.wizard.views import SessionWizardView
-from cuescience_shop.models import Client, Address, Address
+from shop.models import Client, Address, Address
 
 class Step1Form(forms.ModelForm):
     

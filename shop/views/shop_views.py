@@ -1,4 +1,4 @@
-from cuescience_shop.models import Product
+from shop.models import Product
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
