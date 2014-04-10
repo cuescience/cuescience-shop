@@ -33,7 +33,7 @@ class OrderBase(models.Model):
     order_number = models.CharField(max_length=128, )
     client = models.ForeignKey('Client', related_name='client', )
     cart = models.ForeignKey('cart.Cart', related_name='cart', )
-    payment = models.OneToOneField('cuescience_payment.Payment', related_name='payment_of', )
+    payment = models.OneToOneField('payment.Payment', related_name='payment_of', )
      
 	
     def __unicode__(self):
