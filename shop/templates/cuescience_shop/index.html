@@ -7,7 +7,7 @@
 <div>{{ cart.summary }} ({{ cart.count }})</div>
 <ul>
     {% for product in products %}
-        <li>{{ product }} <form action="/shop/cart/add/{{ product.id }}/?next={{ request.get_full_path }}" method="post">{% csrf_token %}<input type="submit" value="In den Warenkorb"/></form></li>
+        <li>{{ product }} <form action="{% url 'cart_add' product.id %}/?next={{ request.get_full_path }}" method="post">{% csrf_token %}<input type="submit" value="In den Warenkorb"/></form></li>
     {% endfor %}
 </ul>
 </body>

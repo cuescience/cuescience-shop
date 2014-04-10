@@ -4,7 +4,7 @@
     <title></title>
 </head>
 <body>
-<form action="/cart/update/?next={{ request.get_full_path }}" method="post">
+<form action="{% url 'cart_update' %}?next={{ request.get_full_path }}" method="post">
     {% csrf_token %}
     <table>
         <tr>
@@ -12,7 +12,6 @@
             <th>Anzahl</th>
             <th>Einzelpreis</th>
             <th>Summe</th>
-
         </tr>
         {% for item in cart %}
             <tr>
