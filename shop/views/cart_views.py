@@ -1,7 +1,7 @@
 from cart import Cart
 from payment.services.paypal import paypal
-from cuescience_shop.checkout_wizard import condition_step_3, CheckoutWizardBase
-from cuescience_shop.models import Product, Order
+from shop.checkout_wizard import condition_step_3, CheckoutWizardBase
+from shop.models import Product, Order
 from django.http import Http404, HttpResponseNotAllowed
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
