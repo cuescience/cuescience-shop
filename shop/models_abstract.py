@@ -53,7 +53,7 @@ class ClientBase(models.Model):
         verbose_name = _("Client")
         verbose_name_plural = _("Clients")
     client_number = models.CharField(max_length=6, )
-    email = models.CharField(max_length=128, )
+    email = models.EmailField()
     first_name = models.CharField(max_length=128, )
     last_name = models.CharField(max_length=128, )
     billing_address = models.OneToOneField('Address', related_name='billing_address_of', )

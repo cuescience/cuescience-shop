@@ -4,14 +4,14 @@ from jinja2.environment import Environment
 from jinja2.loaders import PackageLoader
 
 from django_lean_modelling import helper
-from django_lean_modelling.models.support import ModelSupport
+from django_lean_modelling.models import support
 from django_lean_modelling.admin.support import AdminSupport
 
-
 class _NatSpecTemplate():
-    
-    model_support = ModelSupport()
-    admin_support = AdminSupport()
+
+    def __init__(self):
+        self.model_support = support.ModelSupport()
+        self.admin_support = AdminSupport()
     
     def generate_models(self):
         """ @MethodBody """
@@ -20,8 +20,8 @@ class _NatSpecTemplate():
 if __name__ == '__main__':
     model = _NatSpecTemplate()
     model.generate_models()
-
-    env = Environment(loader=PackageLoader('cuescience_shop.specs', 'templates'), trim_blocks=False)
+    
+    env = Environment(loader=PackageLoader('shop.specs', 'templates'), trim_blocks=False)
     template = env.get_template("model_template.py")
     
     content = template.render(models=model.model_support.models)

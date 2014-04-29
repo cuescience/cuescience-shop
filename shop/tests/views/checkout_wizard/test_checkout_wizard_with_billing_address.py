@@ -11,7 +11,7 @@ class TestCheckoutWizardWithBillingAddress(TestCase):
 
     def test(self):
         """
-         The code in this method is generated from: /de.iljabauer.projects.natspec.python/cuescience_shop/tests/views/checkout_wizard/test_checkout_wizard_with_billing_address.natspec
+         The code in this method is generated from: /cuescience-shop/shop/tests/views/checkout_wizard/test_checkout_wizard_with_billing_address.natspec
          Never change this method or any contents of this file, all local changes will we overwritten.
         """
         

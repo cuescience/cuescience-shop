@@ -2,37 +2,37 @@
 from django import forms
 from django.contrib.formtools.wizard.views import SessionWizardView
 from shop.models import Client, Address, Address
+from django.utils.translation import ugettext_lazy as _
 
 class Step1Form(forms.ModelForm):
     
     class Meta:
         model = Client
-        fields = ('first_name', 'last_name',) 
+        fields = ('email','first_name','last_name',) 
     
     def __init__(self, *args, **kwargs):
         super(Step1Form, self).__init__(*args, **kwargs)
-        
+        self.heading = _("General Information")
         self.grouped_fields = [
-            (self['first_name'],),
-            (self['last_name'],),
-            
+            (self['first_name'],self['last_name'],),
+            (self['email'],),
         ]
 
 
 
 class Step2Form(forms.ModelForm):
-    different_billing_address = forms.BooleanField(required=False, label="Different billing address?",)
+    different_billing_address = forms.BooleanField(required=False, label=_("Different billing address?"), )
     
     class Meta:
         model = Address
-        fields = ('street', 'number', 'postcode', 'city',) 
+        fields = ('street','number','postcode','city',) 
     
     def __init__(self, *args, **kwargs):
         super(Step2Form, self).__init__(*args, **kwargs)
         self.heading = "Shipping Address"
         self.grouped_fields = [
-            (self['street'], self['number'],),
-            (self['postcode'], self['city'],),
+            (self['street'],self['number'],),
+            (self['postcode'],self['city'],),
             (self['different_billing_address'],),
             
         ]
@@ -43,14 +43,14 @@ class Step3Form(forms.ModelForm):
     
     class Meta:
         model = Address
-        fields = ('street', 'number', 'postcode', 'city',) 
+        fields = ('street','number','postcode','city',) 
     
     def __init__(self, *args, **kwargs):
         super(Step3Form, self).__init__(*args, **kwargs)
-        self.heading = "Billing Address"
+        self.heading = _("Billing Address")
         self.grouped_fields = [
-            (self['street'], self['number'],),
-            (self['postcode'], self['city'],),
+            (self['street'],self['number'],),
+            (self['postcode'],self['city'],),
             
         ]
 
@@ -61,15 +61,15 @@ def condition_step_3(wizard):
 
 
 class Step4Form(forms.Form):
-    paypent_options = forms.ChoiceField(required=False, label="Please choose one", choices=[(u'Prepayment', u'Prepayment'), (u'PayPal', u'PayPal')])
+    payment_options = forms.ChoiceField(required=False, label=_("Please choose one"), choices=[(u'Prepayment', _(u'Prepayment')), (u'PayPal', _(u'PayPal'))])
     
     
     
     def __init__(self, *args, **kwargs):
         super(Step4Form, self).__init__(*args, **kwargs)
-        self.heading = "Payment options"
+        self.heading = _("Payment options")
         self.grouped_fields = [
-            (self['paypent_options'],),
+            (self['payment_options'],),
             
         ]
 
@@ -77,5 +77,5 @@ class Step4Form(forms.Form):
 
 
 class CheckoutWizardBase(SessionWizardView):
-    form_list = [("1", Step1Form), ("2", Step2Form), ("3", Step3Form), ("4", Step4Form), ]
+    form_list = [("1",Step1Form),("2",Step2Form),("3",Step3Form),("4",Step4Form),]
     condition_dict = { "3": condition_step_3, }

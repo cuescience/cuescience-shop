@@ -14,7 +14,7 @@ class CheckoutWizard():
     
     def generate_models(self):
         """
-         The code in this method is generated from: /de.iljabauer.projects.natspec.python/cuescience_shop/specs/wizards/checkout_wizard.natspec
+         The code in this method is generated from: /cuescience-shop/shop/specs/wizards/checkout_wizard.natspec
          Never change this method or any contents of this file, all local changes will we overwritten.
         """
         
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     model = CheckoutWizard()
     model.generate_models()
 
-    env = Environment(loader=PackageLoader('cuescience_cart.specs', 'templates'), trim_blocks=False)
+    env = Environment(loader=PackageLoader('shop.specs', 'templates'), trim_blocks=False)
     template = env.get_template("wizard_template.py")
     content = template.render(wizard=model.wizard_support.wizard)
 

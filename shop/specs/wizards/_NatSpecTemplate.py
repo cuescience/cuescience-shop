@@ -20,7 +20,7 @@ if __name__ == '__main__':
     model = _NatSpecTemplate()
     model.generate_models()
 
-    env = Environment(loader=PackageLoader('cuescience_cart.specs', 'templates'), trim_blocks=False)
+    env = Environment(loader=PackageLoader('shop.specs', 'templates'), trim_blocks=False)
     template = env.get_template("wizard_template.py")
     content = template.render(wizard=model.wizard_support.wizard)
 

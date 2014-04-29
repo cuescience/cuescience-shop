@@ -11,7 +11,7 @@ class TestJustPostAllowed(TestCase):
 
     def test(self):
         """
-         The code in this method is generated from: /de.iljabauer.projects.natspec.python/cuescience_shop/tests/views/test_just_post_allowed.natspec
+         The code in this method is generated from: /cuescience-shop/shop/tests/views/test_just_post_allowed.natspec
          Never change this method or any contents of this file, all local changes will we overwritten.
         """
         

@@ -1,9 +1,12 @@
 from cart import Cart
+from django.utils import translation
+from mailtemplates.models import EMailTemplate
+from payment.models import PrePayment
 from payment.services.paypal import paypal
 from shop.checkout_wizard import condition_step_3, CheckoutWizardBase
 from shop.models import Product, Order
 from django.http import Http404, HttpResponseNotAllowed
-from django.shortcuts import redirect, render_to_response
+from django.shortcuts import redirect, render_to_response, render
 from django.template import RequestContext
 
 
@@ -55,7 +58,7 @@ def update_view(request):
     for item in cart:
         quantity = request.POST.get("quantity-{0}".format(item.product.pk), None)
         isNone = quantity is None
-        
+
         if isNone:
             continue
         isSame = int(quantity) == item.quantity
@@ -81,6 +84,7 @@ class CheckoutWizard(CheckoutWizardBase):
 
         transaction = paypal.Transaction(total=cart.summary())
         for cart_item in cart:
+            print("ITEM {0}".format(cart_item))
             product = cart_item.product
             item = paypal.Item(product.title, cart_item.get_unit_price(), cart_item.quantity, "EUR", sku=product.id)
             transaction.item_list.append(item)
@@ -104,15 +108,32 @@ class CheckoutWizard(CheckoutWizardBase):
 
         order.client = client
 
-        result = self.create_paypalpayment(cart)
-        order.payment = result.paypal_payment_db
-        order.save()
+        payment_option = self.get_cleaned_data_for_step("4").get("payment_options", None)
+        print ("PAYMENT {0}".format(self.get_cleaned_data_for_step("4")))
+        language = translation.get_language().upper()
+        if payment_option == "PayPal":
+            result = self.create_paypalpayment(cart)
+            order.payment = result.paypal_payment_db
+            order.save()
+            # we need to do the checkout after saving the order,
+            # if something went wrong
+            #TODO cart.check_out()
 
-        # we need to do the checkout after saving the order,
-        # if something went wrong
+            mail_result = EMailTemplate.objects.send("{0}_ORDER_SUCCESS_PAYPAL".format(language), client.email,
+                                                     {"order": order, "billing_address": billing_address,
+                                                      "shipping_address": address,
+                                                      "paypal_url": order.payment.approval_url})
+            if not result.payment.errors and order.payment.approval_url:
+                return render(self.request, "cuescience_shop/success_paypal.html", {"order": order})
+        elif payment_option == "Prepayment":
+            payment = PrePayment()
+            payment.save()
+            order.payment = payment
+            order.save()
+            cart.check_out()
+            mail_result = EMailTemplate.objects.send("{0}_ORDER_SUCCESS_PREPAYMENT".format(language), client.email,
+                                                     {"order": order, "billing_address": billing_address,
+                                                      "shipping_address": address})
+            return render(self.request, "cuescience_shop/success.html", {"order": order})
 
-        cart.check_out()
-
-        if not result.payment.errors and order.payment.approval_url:
-            return redirect(order.payment.approval_url)
         return render_to_response("cuescience_shop/cart/index.html", RequestContext(self.request))

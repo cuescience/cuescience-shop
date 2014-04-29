@@ -1,0 +1,8 @@
+{% include "cuescience_shop/success.html" %}
+<p>Du wirst auf PayPal weitergeletet um deine Bezahlung zu bestätigen. Sollte die automatische Weiterleitung nicht
+    funktionieren, folge bitte diesem Link: <a href="{{ order.payment.approval_url }}">{{ order.payment.approval_url }}</a></p>
+<script type="text/javascript">
+    $(document).ready(function() {
+        window.location.replace("{% url "payment:redirect" order.payment.pk %}")
+    })
+</script>

@@ -5,18 +5,18 @@ from jinja2.environment import Environment
 from jinja2.loaders import PackageLoader
 
 from django_lean_modelling import helper
-from django_lean_modelling.models.support import ModelSupport
+from django_lean_modelling.models import support
 from django_lean_modelling.admin.support import AdminSupport
 
-
 class Models():
-    
-    model_support = ModelSupport()
-    admin_support = AdminSupport()
+
+    def __init__(self):
+        self.model_support = support.ModelSupport()
+        self.admin_support = AdminSupport()
     
     def generate_models(self):
         """
-         The code in this method is generated from: /de.iljabauer.projects.natspec.python/cuescience_shop/specs/models/models.natspec
+         The code in this method is generated from: /cuescience-shop/shop/specs/models/models.natspec
          Never change this method or any contents of this file, all local changes will we overwritten.
         """
         # Every Product has:
@@ -83,7 +83,7 @@ class Models():
         self.model_support.property_max_length_definition(6, property_client_number)
         
         # - an email.
-        property_email = self.model_support.string_property_definition([u("email")], model_Client)
+        property_ = self.model_support.email_property_definition(model_Client)
         
         # - a first name.
         property_first_name = self.model_support.string_property_definition([u("first"), u("name")], model_Client)
@@ -142,8 +142,8 @@ class Models():
 if __name__ == '__main__':
     model = Models()
     model.generate_models()
-
-    env = Environment(loader=PackageLoader('cuescience_shop.specs', 'templates'), trim_blocks=False)
+    
+    env = Environment(loader=PackageLoader('shop.specs', 'templates'), trim_blocks=False)
     template = env.get_template("model_template.py")
     
     content = template.render(models=model.model_support.models)

@@ -11,7 +11,7 @@ class TestAddMultipleItems(TestCase):
 
     def test(self):
         """
-         The code in this method is generated from: /de.iljabauer.projects.natspec.python/cuescience_shop/tests/views/add_view/test_add_multiple_items.natspec
+         The code in this method is generated from: /cuescience-shop/shop/tests/views/add_view/test_add_multiple_items.natspec
          Never change this method or any contents of this file, all local changes will we overwritten.
         """
         

@@ -11,7 +11,7 @@ class TestUpdateQuantity(TestCase):
 
     def test(self):
         """
-         The code in this method is generated from: /de.iljabauer.projects.natspec.python/cuescience_shop/tests/views/update_view/test_update_quantity.natspec
+         The code in this method is generated from: /cuescience-shop/shop/tests/views/update_view/test_update_quantity.natspec
          Never change this method or any contents of this file, all local changes will we overwritten.
         """
         

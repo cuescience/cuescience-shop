@@ -10,7 +10,7 @@ class TestClientNumberGenerationWith10(TestCase):
 
     def test(self):
         """
-         The code in this method is generated from: /de.iljabauer.projects.natspec.python/cuescience_shop/tests/models/test_client_number_generation_with_10.natspec
+         The code in this method is generated from: /cuescience-shop/shop/tests/models/test_client_number_generation_with_10.natspec
          Never change this method or any contents of this file, all local changes will we overwritten.
         """
         
