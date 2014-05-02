@@ -68,7 +68,7 @@ def update_view(request):
         quantity = int(quantity)
         if quantity == 0:
             item.delete()
-            return redirect(next)
+            continue
 
         item.quantity = quantity
         item.save()
