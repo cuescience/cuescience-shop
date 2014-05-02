@@ -119,7 +119,7 @@ class CheckoutWizard(CheckoutWizardBase):
             order.save()
             # we need to do the checkout after saving the order,
             # if something went wrong
-            #TODO cart.check_out()
+            cart.check_out()
 
             mail_result = EMailTemplate.objects.send("{0}_ORDER_SUCCESS_PAYPAL".format(language), client.email,
                                                      {"order": order, "billing_address": billing_address,
