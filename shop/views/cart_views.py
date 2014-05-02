@@ -1,4 +1,5 @@
 from cart import Cart
+from django.contrib.sites.models import get_current_site
 from django.utils import translation
 from mailtemplates.models import EMailTemplate
 from payment.models import PrePayment
@@ -89,7 +90,8 @@ class CheckoutWizard(CheckoutWizardBase):
             item = paypal.Item(product.title, cart_item.get_unit_price(), cart_item.quantity, "EUR", sku=product.id)
             transaction.item_list.append(item)
 
-        payment_result = paypalservice.create_payment(transaction)
+        domain = get_current_site(self.request)
+        payment_result = paypalservice.create_payment(transaction, domain)
         return payment_result
 
     def done(self, form_list, **kwargs):
