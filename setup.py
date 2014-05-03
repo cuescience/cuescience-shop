@@ -8,11 +8,11 @@ def read(fname):
 
 setup(
         name='cuescience-shop',
-        version='0.1',
+        version='0.2',
         description='cuescience shop',
         maintainer='cuescience',
         maintainer_email='kontakt@cuescience.de',
-        license="-",
+        license="MIT",
         url='',
         packages=['shop', 'shop.views'],
         install_requires=[
