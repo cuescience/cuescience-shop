@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="883dd8a3-bcde-48be-8acf-e471c201ede3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/.idea/workspace.xml" afterPath="$PROJECT_DIR$/shop/.idea/workspace.xml" />
     </list>
     <ignored path="cuescience_shop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,7 +41,7 @@
     <file path="$PROJECT_DIR$/../../nat_laden/laden/models.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397237358035" ignored="false" />
     <file path="/models.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397455084050" ignored="false" />
     <file path="$PROJECT_DIR$/../../nat_laden/nat_laden/settings.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397236855497" ignored="false" />
-    <file path="/settings.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397236854651" ignored="false" />
+    <file path="/settings.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1399209809644" ignored="false" />
     <file path="$PROJECT_DIR$/../../nat_laden/laden/admin.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397236285464" ignored="false" />
     <file path="$PROJECT_DIR$/../website/requirements.txt" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397308182750" ignored="false" />
     <file path="$PROJECT_DIR$/../website/contact/models.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397308200071" ignored="false" />
@@ -52,6 +50,9 @@
     <file path="$PROJECT_DIR$/../../nat_heroku/product/templates/product/product_details.html" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397374316786" ignored="false" />
     <file path="/product_details.html" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397336652207" ignored="false" />
     <file path="/setup.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1397459180247" ignored="false" />
+    <file path="$PROJECT_DIR$/../website_new/cuescience_website/settings.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1399209810020" ignored="false" />
+    <file path="$PROJECT_DIR$/../website_new/requirements.txt" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1399210613828" ignored="false" />
+    <file path="/checkout_wizard.py" changelist="883dd8a3-bcde-48be-8acf-e471c201ede3" time="1399210087546" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,18 @@
       <file leaf-file-name="checkout_wizard.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shop/checkout_wizard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="5" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0">
+            <state line="31" column="44" selection-start="1058" selection-end="1058" vertical-scroll-proportion="-17.4">
+              <folding>
+                <element signature="e#57#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="django.po" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shop/locale/de/LC_MESSAGES/django.po">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.25366405">
               <folding />
             </state>
           </provider>
@@ -98,10 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="378" selection-end="378" vertical-scroll-proportion="0.5905512">
+            <state line="35" column="0" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -111,15 +123,6 @@
         <entry file="file://$PROJECT_DIR$/shop/models_abstract.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="1" column="0" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart_views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop/views/cart_views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -179,13 +182,14 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/shop/checkout_wizard.py" />
         <option value="$PROJECT_DIR$/shop/views/shop_views.py" />
         <option value="$PROJECT_DIR$/shop/templates/cuescience_shop/cart/index.html" />
         <option value="$PROJECT_DIR$/shop/templates/cuescience_shop/index.html" />
         <option value="$PROJECT_DIR$/mail_templates/models.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/shop/checkout_wizard.py" />
+        <option value="$PROJECT_DIR$/shop/locale/de/LC_MESSAGES/django.po" />
       </list>
     </option>
   </component>
@@ -529,13 +533,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shop/views/cart_views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="33" selection-start="2486" selection-end="2486" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shop/templates/cuescience_shop/cart/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="16" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
@@ -560,13 +557,6 @@
     <entry file="file://$PROJECT_DIR$/shop/views/shop_views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/checkout_wizard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -636,7 +626,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="378" selection-end="378" vertical-scroll-proportion="0.5905512">
+        <state line="35" column="0" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/checkout_wizard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="44" selection-start="1058" selection-end="1058" vertical-scroll-proportion="-17.4">
+          <folding>
+            <element signature="e#57#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/locale/de/LC_MESSAGES/django.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.25366405">
           <folding />
         </state>
       </provider>
