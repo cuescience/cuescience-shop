@@ -29,7 +29,7 @@ class Step2Form(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super(Step2Form, self).__init__(*args, **kwargs)
-        self.heading = "Shipping Address"
+        self.heading = _("Shipping Address")
         self.grouped_fields = [
             (self['street'],self['number'],),
             (self['postcode'],self['city'],),
