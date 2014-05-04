@@ -9,12 +9,13 @@ from shop.models import Product, Order
 from django.http import Http404, HttpResponseNotAllowed
 from django.shortcuts import redirect, render_to_response, render
 from django.template import RequestContext
+from django.views.decorators.cache import never_cache
 
-
+@never_cache
 def index_view(request):
     return render_to_response("cuescience_shop/cart/index.html", RequestContext(request))
 
-
+@never_cache
 def add_view(request, product_id):
     if request.method != "POST":
         return HttpResponseNotAllowed(["POST"])
@@ -31,7 +32,7 @@ def add_view(request, product_id):
 
     return redirect(next)
 
-
+@never_cache
 def remove_view(request, product_id):
     if request.method != "POST":
         return HttpResponseNotAllowed(["POST"])
@@ -48,7 +49,7 @@ def remove_view(request, product_id):
 
     return redirect(next)
 
-
+@never_cache
 def update_view(request):
     if request.method != "POST":
         return HttpResponseNotAllowed(["POST"])
