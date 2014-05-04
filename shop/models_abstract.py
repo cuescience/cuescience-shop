@@ -12,8 +12,8 @@ class ProductBase(models.Model):
         abstract = True
         verbose_name = _("Product")
         verbose_name_plural = _("Products")
-    title = models.CharField(max_length=128, )
-    price = models.DecimalField(max_digits=6, decimal_places=2, )
+    title = models.CharField(max_length=128, verbose_name=_("title"))
+    price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name=_("price"))
      
 	
     def __unicode__(self):
@@ -30,10 +30,10 @@ class OrderBase(models.Model):
         abstract = True
         verbose_name = _("Order")
         verbose_name_plural = _("Orders")
-    order_number = models.CharField(max_length=128, )
-    client = models.ForeignKey('Client', related_name='client', )
-    cart = models.ForeignKey('cart.Cart', related_name='cart', )
-    payment = models.OneToOneField('payment.Payment', related_name='payment_of', )
+    order_number = models.CharField(max_length=128, verbose_name=_("order number"))
+    client = models.ForeignKey('Client', related_name='client', verbose_name=_("client"))
+    cart = models.ForeignKey('cart.Cart', related_name='cart', verbose_name=_("cart"))
+    payment = models.OneToOneField('payment.Payment', related_name='payment_of', verbose_name=_("payment"))
      
 	
     def __unicode__(self):
@@ -52,12 +52,12 @@ class ClientBase(models.Model):
         abstract = True
         verbose_name = _("Client")
         verbose_name_plural = _("Clients")
-    client_number = models.CharField(max_length=6, )
-    email = models.EmailField()
-    first_name = models.CharField(max_length=128, )
-    last_name = models.CharField(max_length=128, )
-    billing_address = models.OneToOneField('Address', related_name='billing_address_of', )
-    shipping_address = models.OneToOneField('Address', related_name='shipping_address_of', )
+    client_number = models.CharField(max_length=6,  verbose_name=_("client number"))
+    email = models.EmailField( verbose_name=_("email"))
+    first_name = models.CharField(max_length=128,  verbose_name=_("first name"))
+    last_name = models.CharField(max_length=128,  verbose_name=_("last name"))
+    billing_address = models.OneToOneField('Address', related_name='billing_address_of', verbose_name=_("billing address"))
+    shipping_address = models.OneToOneField('Address', related_name='shipping_address_of', verbose_name=_("shipping address"))
      
 	
     def __unicode__(self):
@@ -74,10 +74,10 @@ class AddressBase(models.Model):
         abstract = True
         verbose_name = _("Address")
         verbose_name_plural = _("Addresses")
-    street = models.CharField(max_length=128, )
-    number = models.CharField(max_length=5, )
-    postcode = models.CharField(max_length=5, )
-    city = models.CharField(max_length=128, )
+    street = models.CharField(max_length=128, verbose_name=_("street"))
+    number = models.CharField(max_length=5, verbose_name=_("number"))
+    postcode = models.CharField(max_length=5, verbose_name=_("postcode"))
+    city = models.CharField(max_length=128, verbose_name=_("city"))
      
 	
     def __unicode__(self):

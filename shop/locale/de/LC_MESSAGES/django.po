@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-03 13:10+0200\n"
+"POT-Creation-Date: 2014-05-04 13:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,8 +31,8 @@ msgid "Billing Address"
 msgstr "Rechnungsadresse"
 
 #: checkout_wizard.py:64
-msgid "Bitte auswählen"
-msgstr ""
+msgid "Please choose one"
+msgstr "Bitte auswählen"
 
 #: checkout_wizard.py:64
 msgid "Prepayment"
@@ -54,6 +54,14 @@ msgstr "Product"
 msgid "Products"
 msgstr "Produkte"
 
+#: models_abstract.py:15
+msgid "title"
+msgstr "Name"
+
+#: models_abstract.py:16
+msgid "price"
+msgstr "Preis"
+
 #: models_abstract.py:31
 msgid "Order"
 msgstr "Bestellung"
@@ -61,6 +69,24 @@ msgstr "Bestellung"
 #: models_abstract.py:32
 msgid "Orders"
 msgstr "Bestellungen"
+
+#: models_abstract.py:33
+msgid "order number"
+msgstr "Bestellnummer"
+
+#: models_abstract.py:34
+#, fuzzy
+msgid "client"
+msgstr "Kunde"
+
+#: models_abstract.py:35
+msgid "cart"
+msgstr "Warenkorb"
+
+#: models_abstract.py:36
+#, fuzzy
+msgid "payment"
+msgstr "Vorkasse"
 
 #: models_abstract.py:53
 msgid "Client"
@@ -70,6 +96,30 @@ msgstr "Kunde"
 msgid "Clients"
 msgstr "Kunden"
 
+#: models_abstract.py:55
+msgid "client number"
+msgstr "Kundennummer"
+
+#: models_abstract.py:56
+msgid "email"
+msgstr "E-Mail"
+
+#: models_abstract.py:57
+msgid "first name"
+msgstr "Vorname"
+
+#: models_abstract.py:58
+msgid "last name"
+msgstr "Nachname"
+
+#: models_abstract.py:59
+msgid "billing address"
+msgstr "Rechnungsadresse"
+
+#: models_abstract.py:60
+msgid "shipping address"
+msgstr "Lieferadresse"
+
 #: models_abstract.py:75
 msgid "Address"
 msgstr "Adresse"
@@ -77,6 +127,22 @@ msgstr "Adresse"
 #: models_abstract.py:76
 msgid "Addresses"
 msgstr "Adressen"
+
+#: models_abstract.py:77
+msgid "street"
+msgstr "Straße"
+
+#: models_abstract.py:78
+msgid "number"
+msgstr "Nummer"
+
+#: models_abstract.py:79
+msgid "postcode"
+msgstr "PLZ"
+
+#: models_abstract.py:80
+msgid "city"
+msgstr "Stadt"
 
 #: specs/templates/model_template.py:12
 msgid "{{model.verbose_name}}"
@@ -92,7 +158,8 @@ msgstr "Bestellung erfolgreich"
 
 #: templates/cuescience_shop/success.html:3
 msgid "Thank you for your order! We sent you a confirmation mail!"
-msgstr "Danke für Deine Bestellung! Wir haben Dir eine Bestätigungsmail gesendet!"
+msgstr ""
+"Danke für Deine Bestellung! Wir haben Dir eine Bestätigungsmail gesendet!"
 
 #: templates/cuescience_shop/cart/wizard.html:30
 msgid "submit"
