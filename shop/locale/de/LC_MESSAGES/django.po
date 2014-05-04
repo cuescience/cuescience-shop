@@ -24,7 +24,7 @@ msgstr "Allgemeine Informationen"
 
 #: checkout_wizard.py:24
 msgid "Different billing address?"
-msgstr "Abweichende Lieferadresse?"
+msgstr "Abweichende Rechnungsadresse?"
 
 #: checkout_wizard.py:32
 msgid "Shipping Address"
