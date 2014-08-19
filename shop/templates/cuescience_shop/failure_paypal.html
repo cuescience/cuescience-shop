@@ -1,0 +1,9 @@
+{% load i18n %}
+{% include "cuescience_shop/success.html" %}
+<!--TODO: add translation -->
+<h2>{% trans "Failure" %}</h2>
+<p>
+    {% blocktrans %}
+        Some error occured during PayPal payment. A staff member will contact you with further informations!
+    {% endblocktrans %}
+</p>

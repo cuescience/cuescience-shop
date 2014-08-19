@@ -135,8 +135,8 @@ class CheckoutWizard(CheckoutWizardBase):
                                                       "paypal_url": order.payment.approval_url})
 
             if result.payment.error:
-                logger.error("PayPal payment wen wrong! Here are the errors: {0}".format(result.payment.errors))
-                #FIXME show error page and ask customer to wait for contact with the staff
+                logger.error("PayPal payment went wrong! Errors: {0}".format(result.payment.error))
+                return render(self.request, "cuescience_shop/failure_paypal.html", {"order": order})
             elif not result.payment.errors and order.payment.approval_url:
                 return render(self.request, "cuescience_shop/success_paypal.html", {"order": order})
 
