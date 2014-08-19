@@ -1,3 +1,4 @@
+import logging
 from cart import Cart
 from django.contrib.sites.models import get_current_site
 from django.utils import translation
@@ -10,6 +11,8 @@ from django.http import Http404, HttpResponseNotAllowed
 from django.shortcuts import redirect, render_to_response, render
 from django.template import RequestContext
 from django.views.decorators.cache import never_cache
+
+logger = logging.getLogger(__name__)
 
 @never_cache
 def index_view(request):
@@ -126,8 +129,13 @@ class CheckoutWizard(CheckoutWizardBase):
                                                      {"order": order, "billing_address": billing_address,
                                                       "shipping_address": address,
                                                       "paypal_url": order.payment.approval_url})
-            if not result.payment.errors and order.payment.approval_url:
+
+            if result.payment.errors:
+                logger.error("PayPal payment wen wrong! Here are the errors: {0}".format(result.payment.errors))
+                #FIXME show error page and ask customer to wait for contact with the staff
+            elif not result.payment.errors and order.payment.approval_url:
                 return render(self.request, "cuescience_shop/success_paypal.html", {"order": order})
+
         elif payment_option == "Prepayment":
             payment = PrePayment()
             payment.save()
