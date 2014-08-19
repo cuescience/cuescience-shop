@@ -95,7 +95,7 @@ class CheckoutWizard(CheckoutWizardBase):
             item = paypal.Item(product.title, cart_item.get_unit_price(), cart_item.quantity, "EUR", sku=product.id)
             transaction.item_list.append(item)
         #TODO add translation
-        item = paypal.Item("Versand / Shipping", cart.shipping_costs(), 1, "EUR")
+        item = paypal.Item("Versand / Shipping", cart.shipping_costs(), 1, "EUR", sku=0)
         transaction.item_list.append(item)
 
         domain = get_current_site(self.request)
