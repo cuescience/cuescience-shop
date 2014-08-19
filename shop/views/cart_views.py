@@ -1,5 +1,6 @@
 import logging
 from cart import Cart
+from django.conf import settings
 from django.contrib.sites.models import get_current_site
 from django.utils import translation
 from mailtemplates.models import EMailTemplate
@@ -93,6 +94,9 @@ class CheckoutWizard(CheckoutWizardBase):
             product = cart_item.product
             item = paypal.Item(product.title, cart_item.get_unit_price(), cart_item.quantity, "EUR", sku=product.id)
             transaction.item_list.append(item)
+        #TODO add translation
+        item = paypal.Item("Versand / Shipping", cart.shipping_costs(), 1, "EUR")
+        transaction.item_list.append(item)
 
         domain = get_current_site(self.request)
         payment_result = paypalservice.create_payment(transaction, domain)
