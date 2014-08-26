@@ -1,0 +1,83 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+    &rsaquo; <a href="{% url 'admin:shop_order_changelist' %}">{% trans 'Orders' %}</a>
+    &rsaquo; View order {{ order.order_number }}
+    </div>
+    {% endblock %}
+{% block content %}
+    <h1>Order {{ order.order_number }}</h1>
+
+    <div style="background-color: whitesmoke; padding: 1.5rem; margin: 1rem; width: 45%; float: left;">
+        <h2 style="margin-top: 0;">Order</h2>
+        <table style="width: 100%">
+            <tr>
+                <td>Order Number</td>
+                <td>{{ order.order_number }}</td>
+            </tr>
+            <tr>
+                <td>Creation Date</td>
+                <td>{{ order.cart.creation_date }}</td>
+            </tr>
+            <tr>
+                <td>Payment</td>
+                <td>{{ order.payment }}</td>
+            </tr>
+
+
+        </table>
+        <div style="font-size: 2rem;">
+        <table style="width: 100%; margin-top: 1rem;  ">
+            <tr style="font-weight: bold; font-size: 1.5rem;">
+                <td>Produkt</td>
+                <td style=" text-align: right;">Quantity</td>
+                <td style=" text-align: right;">EP</td>
+                <td style=" text-align: right;">Sum</td>
+            </tr>
+            {% for item in items %}
+                <tr>
+                    <td style="border-bottom: 1px solid #181818;">{{ item.product }}</td>
+                    <td style="border-bottom: 1px solid #181818; text-align: right;">{{ item.quantity }}</td>
+                    <td style="border-bottom: 1px solid #181818; text-align: right;">{{ item.unit_price }} €</td>
+                    <td style="border-bottom: 1px solid #181818; text-align: right;">{{ item.total_price }} €</td>
+                </tr>
+            {% endfor %}
+            <tr style="font-weight: bold; font-size: 1.5rem; background-color: #e2e2e2">
+                <td colspan="3">Sum</td>
+                <td style=" text-align: right;">{{ order.cart.summary }} €</td>
+            </tr>
+        </table>
+        </div>
+    </div>
+
+    <div style="background-color:whitesmoke; padding: 1.5rem; margin: 1rem; width: 25%; float: left;">
+        <h2 style="margin-top: 0;">Client {{ order.client.first_name }} {{ order.client.last_name }}</h2>
+        <table style="width: 100%">
+            <tr>
+                <td>Client Number</td>
+                <td>{{ order.client.client_number }}</td>
+            </tr>
+            <tr>
+                <td>E-Mail</td>
+                <td>{{ order.client.email }}</td>
+            </tr>
+            <tr>
+                <td>Billing Address</td>
+                <td>{{ order.client.billing_address.street }} {{ order.client.billing_address.number }}
+                    <br/>{{ order.client.billing_address.postcode }} {{ order.client.billing_address.city }} </td>
+            </tr>
+            <tr>
+                <td>Shipping Address</td>
+                <td>{{ order.client.shipping_address.street }} {{ order.client.shipping_address.number }}
+                    <br/>{{ order.client.shipping_address.postcode }} {{ order.client.shipping_address.city }} </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <div style="clear:both"></div>
+
+{% endblock %}
