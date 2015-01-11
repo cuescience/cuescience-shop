@@ -1,8 +1,8 @@
-""" GENERATED FILE. ALL CHANGES WILL BE OVERWRITTEN! """
 from cart.models import Item
 from django.conf.urls import url, patterns
 from django.contrib import admin
 from django.db.models import get_models, get_app
+from django.http.response import Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.text import wrap
@@ -26,7 +26,10 @@ class OrderAdmin(admin.ModelAdmin):
         return my_urls + urls
 
     def view_order(self, request, object_id):
-        order = Order.objects.get(pk=object_id)
+        try:
+            order = Order.objects.get(pk=object_id)
+        except Order.DoesNotExist:
+            return Http404()
         items = Item.objects.filter(cart=order.cart)
 
         return render_to_response('cuescience_shop/view_order.html', RequestContext(request, {
