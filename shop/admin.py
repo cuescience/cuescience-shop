@@ -29,7 +29,8 @@ class OrderAdmin(admin.ModelAdmin):
         try:
             order = Order.objects.get(pk=object_id)
         except Order.DoesNotExist:
-            return Http404()
+            raise Http404()
+
         items = Item.objects.filter(cart=order.cart)
 
         return render_to_response('cuescience_shop/view_order.html', RequestContext(request, {
