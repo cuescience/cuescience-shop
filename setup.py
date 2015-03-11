@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
         name='cuescience-shop',
-        version='0.2.7',
+        version='0.2.8',
         description='cuescience shop',
         maintainer='cuescience',
         maintainer_email='kontakt@cuescience.de',
