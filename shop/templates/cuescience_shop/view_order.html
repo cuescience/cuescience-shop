@@ -65,12 +65,13 @@
             </tr>
             <tr>
                 <td>Billing Address</td>
-                <td>{{ order.client.billing_address.street }} {{ order.client.billing_address.number }}
+		<td>{{ order.client.first_name }} {{ order.client.last_name }}<br/>{{ order.client.billing_address.street }} {{ order.client.billing_address.number }}
                     <br/>{{ order.client.billing_address.postcode }} {{ order.client.billing_address.city }} </td>
             </tr>
             <tr>
                 <td>Shipping Address</td>
-                <td>{{ order.client.shipping_address.street }} {{ order.client.shipping_address.number }}
+		<td>{{ order.client.first_name }} {{ order.client.last_name }}<br/>
+			{{ order.client.shipping_address.street }} {{ order.client.shipping_address.number }}
                     <br/>{{ order.client.shipping_address.postcode }} {{ order.client.shipping_address.city }} </td>
             </tr>
         </table>
