@@ -20,7 +20,6 @@ logger = logging.getLogger(__name__)
 def index_view(request):
     return render_to_response("cuescience_shop/cart/index.html", RequestContext(request))
 
-@never_cache
 @csrf_exempt
 def add_view(request, product_id):
     if request.method != "POST":
